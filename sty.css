@@ -1,0 +1,289 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: #333;
+  flex: 1;
+}
+
+.navbar-menu {
+  display: flex;
+  justify-content: center;
+  flex: 2;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  color: #ff6347;
+}
+
+/* Hamburger menu styling */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 2px 0;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Dropdown menu styling for smaller screens */
+.navbar-menu {
+  position: fixed;
+  top: 60px;
+  right: -250px;
+  width: 250px;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%) translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease, right 0.3s ease;
+}
+
+.navbar-menu.active {
+  right: 0;
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: flex;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    padding: 15px 20px; /* Sesuaikan padding untuk layar kecil */
+  }
+
+  .navbar-logo {
+    font-size: 20px; /* Ukuran font yang lebih kecil untuk logo */
+  }
+
+  .navbar-menu a {
+    font-size: 16px; /* Ukuran font yang lebih kecil untuk item menu */
+    padding: 10px 0; /* Tambah padding untuk kenyamanan klik */
+  }
+
+  .navbar-menu {
+    width: 80%; /* Lebar menu lebih kecil di layar kecil */
+    top: 50px; /* Sesuaikan posisi dari atas */
+  }
+
+  .hero-content h1 {
+    font-size: 32px; /* Ukuran font yang lebih kecil untuk layar kecil */
+  }
+
+  .hero-content p {
+    font-size: 16px; /* Ukuran font yang lebih kecil untuk layar kecil */
+  }
+
+  .btn-primary {
+    font-size: 14px; /* Sesuaikan ukuran tombol */
+    padding: 10px 20px;
+  }
+
+  .product-list {
+    flex-direction: column; /* Atur produk menjadi satu kolom di layar kecil */
+    gap: 20px; /* Jarak antara produk */
+  }
+
+  .product-item {
+    max-width: 90%; /* Buat produk lebih lebar di layar kecil */
+    margin: 0 auto; /* Pusatkan produk */
+  }
+}
+
+/* Media query for larger screens */
+@media (min-width: 769px) {
+  .navbar-menu {
+    display: flex;
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    right: 0;
+    top: auto;
+    flex-direction: row;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Hero section styling */
+.hero-section {
+  background-image: url("haha.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: italic;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #d4af37; /* Warna emas */
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #b89b30; /* Warna emas lebih gelap */
+}
+
+/* Products section styling */
+.products {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.products h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.product-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.product-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-item h3 {
+  font-size: 20px;
+  margin: 20px 0 10px;
+}
+
+.product-item .price {
+  font-size: 18px;
+  color: #d4af37; /* Warna emas */
+}
+
+/* Footer styling */
+.footer {
+  padding: 1px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
